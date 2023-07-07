@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-COMMAND=/usr/bin/wget '\-qO' ipinfo.io/ip;
+COMMAND=$(/usr/bin/wget -qO ipinfo.io/ip);
 
 if [ -c $COMMAND  ]
 then
