@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 
-COMMAND=$(/usr/bin/wget -qO ipinfo.io/ip);
+echo 'Banco Dados A Consultar: '; read DATABASE
 
-if [ -c $COMMAND  ]
+locationIp() {
+	COMMAND=$(/usr/bin/wget -qO- $DATABASE)
+}
+
+if ! [ 'https://'  ] || [ 'http://' ] || [ ' ' ]
 then
-	echo 'Buscando dados em https://ipinfo.io'
-	sleep 2
-	$COMMAND
+	echo 'Digite o endereço seguido do protocolo https ou http corretamente'
 else
-	echo 'Erro ao buscar Informações!'
+
+	if [ locationIp ]
+	then
+		echo 'Buscando dados em: '$DATABASE
+		locationIp
+	else
+		echo 'Erro ao buscar Informações!'
+		echo 'Não conseguimos encontrar seu endereço IP.'
+	fi
+
 fi
