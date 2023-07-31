@@ -18,7 +18,7 @@ locationIp()
 }
 
 # Verifica Provedor Digitado Pelo Usuário. Se o Provedor estiver no Banco de Dados Armazenados a Função é Executada. O Contrário é Listado alguns Provedores Aceitos.
-if [[ $DATABASE != ${URL[0]} && $PROVIDER != ${URL[1]} || $DATABASE != ${URL[1]} && $PROVIDER != ${URL[2]} ]];
+if [[ $DATABASE != 'ipinfo.io' && $DATABASE != 'ipconfig.io' ]];
 then
 	echo 'Provedores de Buscas Aceitos: ipinfo.io, ipconfig.io, ifconfig.io'
 else
